@@ -30,6 +30,17 @@ public class UserValidator implements Validator {
         if (userService.findByUsername(user.getUsername()) != null) {
             errors.rejectValue("username", "Duplicate.userForm.username");
         }
+        
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
+//        if (user.getEmail().length() < 6 || user.getEmail().length() > 32) {
+//            errors.rejectValue("email", "Size.userForm.email");
+//        }
+        if(user.getEmail().matches("/^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/")){
+            errors.rejectValue("email", "Valid.userForm.email");
+        }
+        if (userService.findByUsername(user.getUsername()) != null) {
+            errors.rejectValue("username", "Duplicate.userForm.username");
+        }
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
         if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
