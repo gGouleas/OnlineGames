@@ -1,7 +1,8 @@
 package org.noobs.OnlineGames.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.util.Collection;
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "roles")
@@ -11,9 +12,10 @@ public class Role {
     private Long id;
 
     private String name;
-
+    
+    @JsonBackReference
     @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    private Collection<User> users;
 
     public Long getId() {
         return id;
@@ -31,11 +33,11 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
+    public Collection<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(Collection<User> users) {
         this.users = users;
     }
 }

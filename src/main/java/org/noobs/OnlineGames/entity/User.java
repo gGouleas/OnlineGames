@@ -1,7 +1,9 @@
 package org.noobs.OnlineGames.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.util.Collection;
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -13,14 +15,17 @@ public class User {
     private String username;
     
     private String email;
-
+    
+    @JsonIgnore
     private String password;
-
+    
+    @JsonIgnore
     @Transient
     private String passwordConfirm;
-
+    
+    @JsonManagedReference
     @ManyToMany
-    private Set<Role> roles;
+    private Collection<Role> roles;
 
     public Long getId() {
         return id;
@@ -62,11 +67,11 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public Set<Role> getRoles() {
+    public Collection<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
 }

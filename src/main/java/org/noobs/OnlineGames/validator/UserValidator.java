@@ -35,7 +35,7 @@ public class UserValidator implements Validator {
 //        if (user.getEmail().length() < 6 || user.getEmail().length() > 32) {
 //            errors.rejectValue("email", "Size.userForm.email");
 //        }
-        if(user.getEmail().matches("/^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/")){
+        if(!user.getEmail().matches("^(.+)@(.+)$")){
             errors.rejectValue("email", "Valid.userForm.email");
         }
         if (userService.findByUsername(user.getUsername()) != null) {

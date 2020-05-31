@@ -7,7 +7,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Create an account</title>
+        <title>Welcome page</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -18,8 +18,11 @@
                 <form id="logoutForm" method="POST" action="${contextPath}/logout">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </form>
+                <form id="updateForm" method="GET" action="${contextPath}/update">
+                </form>
 
-                <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+                <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
+                 | <a onclick="document.forms['updateForm'].submit()">Update</a></h2>
             </c:if>
         </div>
 

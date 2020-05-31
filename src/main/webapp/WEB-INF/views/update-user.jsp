@@ -8,7 +8,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Create your account</title>
+        <title>Update your account</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -16,14 +16,15 @@
 
         <style>
             body {
-                background-image: url("img/photo2.jpg");
+                /*background-image: url("img/photo2.jpg");*/
                 background-color: darkslategray;
             }
         </style>
+        
     </head>
 
     <body>
-
+        
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-12">
@@ -31,11 +32,11 @@
                         <div class="col-md-6 mx-auto">
                             <div class="card border-secondary">
                                 <div class="card-header">
-                                    <h3 class="mb-0 my-2">Sign Up</h3>
+                                    <h3 class="mb-0 my-2">${username}</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form:form method="POST" modelAttribute="userForm" class="form-signin">
-                                        <h2 class="form-signin-heading">Create your account</h2>
+                                    <form:form method="POST" action="update" modelAttribute="user" class="form-signin">
+                                        <h2 class="form-signin-heading">Update your account</h2>
                                         <spring:bind path="username">
                                             <div class="form-group p-1 ${status.error ? 'has-error' : ''}">
                                                 <form:input type="text" path="username" class="form-control" placeholder="Username"
@@ -68,6 +69,7 @@
                                         </spring:bind>
 
                                         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                                        <p><a href= "${contextPath}/user/username/${username}">delete account</a></p> 
                                     </form:form>
                                 </div>
                             </div>

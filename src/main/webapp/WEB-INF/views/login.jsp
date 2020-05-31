@@ -15,13 +15,20 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+        
+        <style>
+            body {
+                /*background-image: url("img/photo2.jpg");*/
+                background-color: darkslategray;
+            }
+        </style>
     </head>
 
     <body>
 
         <div class="container">
             <form method="POST" action="${contextPath}/login" class="form-signin">
-                <h2 class="form-heading">Log in</h2>
+                <h2 class="form-heading text-primary">Log in</h2>
 
                 <div class="form-group ${error != null ? 'has-error' : ''}">
                     <span>${message}</span>
@@ -31,7 +38,7 @@
                     <span>${error}</span>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+                    <button class="btn btn-lg btn-primary btn-block " type="submit">Log In</button>
                     <h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>
                 </div>
             </form>
