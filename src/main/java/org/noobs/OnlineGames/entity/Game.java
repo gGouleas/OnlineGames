@@ -11,15 +11,11 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private String mainSrc;
+    private String imgSrc;
     
     @JsonManagedReference
     @ManyToMany
-//    @JoinTable(
-//            name = "games_categories",
-//            joinColumns = @JoinColumn(
-//                    name = "game_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(
-//                    name = "category_id", referencedColumnName = "id"))
     private Collection<Category> categories;
 
     public Game() {
@@ -43,6 +39,22 @@ public class Game {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMainSrc() {
+        return mainSrc;
+    }
+
+    public void setMainSrc(String mainSrc) {
+        this.mainSrc = mainSrc;
+    }
+
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 
     public Collection<Category> getCategories() {

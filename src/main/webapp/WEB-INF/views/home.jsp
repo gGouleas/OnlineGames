@@ -9,7 +9,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Log in with your account</title>
+        <title>Home</title>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
@@ -18,9 +18,19 @@
     </head>
 
     <body>
+        <script>
+            $.getJSON("game/", function (result) {
+                console.log(result);
+                $.each(result, function (i, field) {
+                    $('#games').prepend('<img id="theImg"/>')
+                    $("#theImg").attr("src", field.imgSrc);
+                    $("#theImg").attr("class", "img-fluid img-thumbnail");
+                });
+            });
+        </script>
 
         <div class="container">
-            <form method="POST" action="${contextPath}/login" class="form-signin">
+            <form method="POST" action="${contextPath}/home" class="form-signin">
                 <h2 class="form-heading text-primary">Log in</h2>
 
                 <div class="form-group ${error != null ? 'has-error' : ''}">
@@ -36,9 +46,10 @@
                 </div>
             </form>
         </div>
+                <div id="games" class="col-lg-3 col-md-4 col-6"></div>
 
-        
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
     </body>
 </html>

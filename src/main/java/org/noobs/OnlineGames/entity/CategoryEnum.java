@@ -18,5 +18,7 @@ public enum CategoryEnum {
     FPS,
     Sandbox,
     Rpg,
+    Moba,
+    Sports
     
 }

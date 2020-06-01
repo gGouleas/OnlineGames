@@ -12,4 +12,6 @@ public interface IGameService  {
     
     List<Game> findByCategory(Category category);
     
+    List<Game> findByCategory(long id);
+    
 }

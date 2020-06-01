@@ -49,7 +49,7 @@ public class MainController {
         return "redirect:/index";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/home")
     public String login(Model model, String error, String logout) {
         if (error != null)
             model.addAttribute("error", "Your username and password is invalid.");
@@ -57,9 +57,9 @@ public class MainController {
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
 
-        return "login";
+        return "home";
     }
-
+    
     @GetMapping({"/", "/index"})
     public String index(Model model) {
         return "index";
