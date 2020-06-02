@@ -20,10 +20,12 @@
         
         <script>
             $.getJSON("game/", function (result) {
-                console.log(result);
                 $.each(result, function (i, field) {
-                    $('#games').prepend('<div class="col-lg-3 col-md-4 col-6"><a href="#" class="d-block mb-4 h-100"><img id="theImg" class="img-fluid img-thumbnail"></a></div>');
-                    $("#theImg").attr("src", field.imgSrc);
+                    $('#games').prepend('<div class="col-lg-3 col-md-4 col-6"><a id="link" class="d-block mb-4 h-100"><img id="gameImg" class="img-fluid img-thumbnail"></a></div>');
+                    $('#gameImg').attr("src", field.imgSrc);
+                    console.log(field.mainSrc);
+                    $('#link').attr('href', field.mainSrc);
+                    $('#gameImg').attr('href', field.mainSrc);
                 });
             });
         </script>
