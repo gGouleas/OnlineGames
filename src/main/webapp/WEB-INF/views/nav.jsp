@@ -44,8 +44,8 @@
                             Welcome ${pageContext.request.userPrincipal.name}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item link" onclick="document.forms['updateForm'].submit()">Update profile</a>
                             <a class="dropdown-item link" onclick="document.forms['logoutForm'].submit()">Logout</a>
-                            <a class="dropdown-item link" onclick="document.forms['updateForm'].submit()">Update</a>
                         </div>
                     </div>
                 </c:if>
