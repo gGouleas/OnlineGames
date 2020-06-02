@@ -1,7 +1,5 @@
 package org.noobs.OnlineGames.controller;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import org.noobs.OnlineGames.entity.User;
 import org.noobs.OnlineGames.service.UserServiceImpl;
 import org.noobs.OnlineGames.ultil.CustomErrorType;
@@ -13,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,7 +46,6 @@ public class UserRestController {
 //        }
 //        return new ResponseEntity<User>(user, HttpStatus.OK);
 //    }
-    
     // -------------------Retrieve User By email------------------------------------------
     @RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
     public ResponseEntity<?> getUserByEmail(@PathVariable("email") String email) {
@@ -81,20 +77,19 @@ public class UserRestController {
 //        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
 //    }
     // ------------------- Delete User-----------------------------------------
-    @PreAuthorize("#contact.name == authentication.name")
-    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
-    public ResponseEntity<?> deleteUser(@PathVariable("username") String username, HttpServletRequest request) throws ServletException {
-        logger.info("Fetching & Deleting User with username {}", username);
-
-        User user = userService.findByUsername(username);
-        if (user == null) {
-            logger.error("Unable to delete. User with username {} not found.", username);
-            return new ResponseEntity(new CustomErrorType("Unable to delete. User with username " + username + " not found."),
-                    HttpStatus.NOT_FOUND);
-        }
-        userService.delete(user);
-        request.logout();
-        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
-    }
+//    @PreAuthorize("#contact.name == authentication.name")
+//    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
+//    public ResponseEntity<?> deleteUser(@PathVariable("username") String username) {
+//        logger.info("Fetching & Deleting User with username {}", username);
+//
+//        User user = userService.findByUsername(username);
+//        if (user == null) {
+//            logger.error("Unable to delete. User with username {} not found.", username);
+//            return new ResponseEntity(new CustomErrorType("Unable to delete. User with username " + username + " not found."),
+//                    HttpStatus.NOT_FOUND);
+//        }
+//        userService.delete(user);
+//        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+//    }
 
 }

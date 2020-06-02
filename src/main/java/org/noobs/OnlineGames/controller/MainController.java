@@ -46,7 +46,7 @@ public class MainController {
 
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
-        return "redirect:/index";
+        return "redirect:/main";
     }
 
     @GetMapping("/home")
@@ -62,9 +62,9 @@ public class MainController {
         return "home";
     }
 
-    @GetMapping({"/", "/index"})
+    @GetMapping({"/", "/main", "/index"})
     public String index(Model model) {
-        return "index";
+        return "main";
     }
 
     @GetMapping({"/update"})
@@ -77,7 +77,7 @@ public class MainController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute("user") User userForm, BindingResult bindingResult, HttpServletRequest request) throws ServletException {
+    public String update(Model model, @ModelAttribute("user") User userForm, BindingResult bindingResult, HttpServletRequest request) throws ServletException {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
@@ -87,8 +87,24 @@ public class MainController {
         String username = authentication.getName();
         User currentUser = userService.findByUsername(username);
         userService.updateUser(currentUser, userForm);
+        model.addAttribute("message","Your account has been updated.");
         request.logout();
-        return "redirect:/index";
+        return "redirect:/home";
+    }
+    
+    @PreAuthorize("#contact.name == authentication.name")
+    @GetMapping("/delete/{username}")
+    public String delete(Model model, @PathVariable("username") String username, HttpServletRequest request) throws ServletException {
+        
+        User user = userService.findByUsername(username);
+        if(user == null){
+            model.addAttribute("message","Oops, something went wrong.");
+            return "redirect:/home";
+        }
+        userService.delete(user);
+        model.addAttribute("message","Your account has been deleted.");
+        request.logout();
+        return "redirect:/home";
     }
 
 }

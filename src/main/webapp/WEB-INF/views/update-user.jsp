@@ -61,7 +61,7 @@
                                         </spring:bind>
 
                                         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-                                        <p><a href= "${contextPath}/user/username/${username}">delete account</a></p> 
+                                        <p><a href= "${contextPath}/delete/${username}">delete account</a></p> 
                                     </form:form>
                                 </div>
                             </div>
