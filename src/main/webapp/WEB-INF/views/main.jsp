@@ -24,7 +24,6 @@
                     $(".selector").tooltip("classes.tooltip");
                 });
             });
-
         </script>
     </head>
     <body>   

@@ -10,6 +10,17 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+        <script>          
+            $.getJSON("category/", function (result) {
+                $.each(result, function (i, field) {
+                    $('#categories').prepend('<option id="catOption" class="dropdown-item link"></option>');
+                    $('#catOption').html(field.name);
+                    $('#catOption').click(function() {
+                        console.log("triggered");
+                    });
+                });
+            });
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -28,7 +39,13 @@
                     <a class="nav-link" href="#">Merchandise</a>
                 </li>
                 <li>
-
+                    <div class="dropdown ml-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </button>
+                        <div id="categories" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        </div>
+                    </div>
                 </li>
             </ul>
             <div class="container text-white">
