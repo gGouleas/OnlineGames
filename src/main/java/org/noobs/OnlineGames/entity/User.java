@@ -1,5 +1,6 @@
 package org.noobs.OnlineGames.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.Collection;
@@ -22,6 +23,10 @@ public class User {
     @JsonIgnore
     @Transient
     private String passwordConfirm;
+    
+    @JsonBackReference
+    @OneToMany(mappedBy = "game")
+    private Collection<Highscore> highscore;
     
     @JsonManagedReference
     @ManyToMany
@@ -67,6 +72,14 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
+    public Collection<Highscore> getHighscore() {
+        return highscore;
+    }
+
+    public void setHighscore(Collection<Highscore> highscore) {
+        this.highscore = highscore;
+    }
+    
     public Collection<Role> getRoles() {
         return roles;
     }

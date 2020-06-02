@@ -1,5 +1,6 @@
 package org.noobs.OnlineGames.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.Collection;
 import javax.persistence.*;
@@ -13,6 +14,10 @@ public class Game {
     private String name;
     private String mainSrc;
     private String imgSrc;
+    
+    @JsonBackReference
+    @OneToMany(mappedBy = "game")
+    private Collection<Highscore> highscore;
     
     @JsonManagedReference
     @ManyToMany
@@ -57,6 +62,14 @@ public class Game {
         this.imgSrc = imgSrc;
     }
 
+    public Collection<Highscore> getHighscore() {
+        return highscore;
+    }
+
+    public void setHighscore(Collection<Highscore> highscore) {
+        this.highscore = highscore;
+    }
+    
     public Collection<Category> getCategories() {
         return categories;
     }

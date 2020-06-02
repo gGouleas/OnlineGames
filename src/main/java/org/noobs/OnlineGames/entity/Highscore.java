@@ -1,5 +1,6 @@
 package org.noobs.OnlineGames.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 
 @Entity(name="highscores")
@@ -11,15 +12,16 @@ public class Highscore {
     private Long id;
     private Long highscore;
     
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @ManyToOne
     @JoinColumn(name = "game_id", referencedColumnName = "id")
     private Game game;
-   
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    
+    @JsonManagedReference
+    @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
     
-
     public Highscore(){       
     }
     

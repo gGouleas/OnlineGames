@@ -115,5 +115,10 @@ public class MainController {
         request.logout();
         return "redirect:/home?delete";
     }
+    
+    @GetMapping("/highscores")
+    public String highscores(Model model){
+        return "highscores";
+    }
 
 }
