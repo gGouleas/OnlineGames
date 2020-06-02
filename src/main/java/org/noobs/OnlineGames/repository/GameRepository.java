@@ -12,9 +12,6 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 
     Game findByName(String name);
 
-//    @Query("select game.id, game.name from game "
-//            + "inner join game_category on games.id = game_category.game_id "
-//            + "inner join categories on categories.id = game_category.category_id ")
     @Query("select distinct game from games game "
             + "join game.categories category where category.id = :id ")
     List<Game> findByCategory(@Param("id") long id);

@@ -22,9 +22,8 @@
             $.getJSON("game/", function (result) {
                 console.log(result);
                 $.each(result, function (i, field) {
-                    $('#games').prepend('<img id="theImg"/>')
+                    $('#games').prepend('<img id="theImg" class="img-fluid img-thumbnail"/>')
                     $("#theImg").attr("src", field.imgSrc);
-                    $("#theImg").attr("class", "img-fluid img-thumbnail");
                 });
             });
         </script>
@@ -46,8 +45,9 @@
                 </div>
             </form>
         </div>
+                <div class="container">
                 <div id="games" class="col-lg-3 col-md-4 col-6"></div>
-
+                </div>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         

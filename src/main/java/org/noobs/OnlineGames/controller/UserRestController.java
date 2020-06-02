@@ -1,5 +1,7 @@
 package org.noobs.OnlineGames.controller;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import org.noobs.OnlineGames.entity.User;
 import org.noobs.OnlineGames.service.UserServiceImpl;
 import org.noobs.OnlineGames.ultil.CustomErrorType;
@@ -35,7 +37,7 @@ public class UserRestController {
         }
         return new ResponseEntity<List<User>>(users, HttpStatus.OK);
     } */
-    // -------------------Retrieve Single User By username------------------------------------------
+    // -------------------Retrieve User By username------------------------------------------
 //    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
 //    public ResponseEntity<?> getUserById(@PathVariable("username") String username) {
 //        logger.info("Fetching User with username {}", username);
@@ -47,7 +49,8 @@ public class UserRestController {
 //        }
 //        return new ResponseEntity<User>(user, HttpStatus.OK);
 //    }
-
+    
+    // -------------------Retrieve User By email------------------------------------------
     @RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
     public ResponseEntity<?> getUserByEmail(@PathVariable("email") String email) {
         logger.info("Fetching User with email {}", email);
@@ -60,7 +63,7 @@ public class UserRestController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    // ------------------- Update a User ------------------------------------------------
+    // ------------------- Update User ------------------------------------------------
 //    @PreAuthorize("#contact.name == authentication.name")
 //    @RequestMapping(value = "/username/{username}", method = RequestMethod.POST)
 //    public ResponseEntity<?> updateUser(@PathVariable("username") String username, @RequestBody User user) {
@@ -77,11 +80,10 @@ public class UserRestController {
 //        userService.updateUser(currentUser,user);
 //        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
 //    }
-
-    // ------------------- Delete a User-----------------------------------------
+    // ------------------- Delete User-----------------------------------------
     @PreAuthorize("#contact.name == authentication.name")
     @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
-    public ResponseEntity<?> deleteUser(@PathVariable("username") String username) {
+    public ResponseEntity<?> deleteUser(@PathVariable("username") String username, HttpServletRequest request) throws ServletException {
         logger.info("Fetching & Deleting User with username {}", username);
 
         User user = userService.findByUsername(username);
@@ -91,6 +93,7 @@ public class UserRestController {
                     HttpStatus.NOT_FOUND);
         }
         userService.delete(user);
+        request.logout();
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
 

@@ -1,6 +1,5 @@
 package org.noobs.OnlineGames.controller;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import org.noobs.OnlineGames.entity.User;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
+
     @Autowired
     private IUserService userService;
 
@@ -51,43 +51,44 @@ public class MainController {
 
     @GetMapping("/home")
     public String login(Model model, String error, String logout) {
-        if (error != null)
+        if (error != null) {
             model.addAttribute("error", "Your username and password is invalid.");
+        }
 
-        if (logout != null)
+        if (logout != null) {
             model.addAttribute("message", "You have been logged out successfully.");
+        }
 
         return "home";
     }
-    
+
     @GetMapping({"/", "/index"})
     public String index(Model model) {
         return "index";
     }
-    
+
     @GetMapping({"/update"})
-    public String update(Model model, String error){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+    public String update(Model model, String error) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         model.addAttribute("username", username);
         model.addAttribute("user", new User());
         return "update-user";
     }
-    
-    @PreAuthorize("#contact.name == authentication.name")
+
     @PostMapping("/update")
-    public String update(@ModelAttribute("user") User userForm, BindingResult bindingResult,HttpServletRequest request) throws ServletException {
+    public String update(@ModelAttribute("user") User userForm, BindingResult bindingResult, HttpServletRequest request) throws ServletException {
         userValidator.validate(userForm, bindingResult);
-        
+
         if (bindingResult.hasErrors()) {
             return "update-user";
         }
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User currentUser = userService.findByUsername(username);
         userService.updateUser(currentUser, userForm);
         request.logout();
         return "redirect:/index";
     }
-    
+
 }
