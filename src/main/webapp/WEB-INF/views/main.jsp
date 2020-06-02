@@ -22,6 +22,7 @@
                     $('#gameImg').attr('title', field.name);
                     $('#gameSrc').attr('href', field.mainSrc);
                     $('#gameImg').tooltip();
+                    $( ".selector" ).tooltip( "option", "classes.tooltip", "highlight" );
                 });
             });
 
