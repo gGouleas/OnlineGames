@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -31,38 +29,11 @@
             });
 
         </script>
-        <style>
-            .footer {
-                
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background-color: black;
-                color: cornflowerblue;
-                text-align: center;
-            }
-        </style>
+    
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a class="navbar-brand" href="#">Noob Games</a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Ganes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Highscores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Chat</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Merchandise</a>
-                </li>
-            </ul>
-        </nav>
-
+        <jsp:include page="nav.jsp"/>
         <div class="container">
             <form method="POST" action="${contextPath}/home" class="form-signin">
                 <h2 class="form-heading text-primary">Log in</h2>

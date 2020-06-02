@@ -16,7 +16,7 @@
     </head>
 
     <body>
-        
+        <jsp:include page="nav.jsp"/>
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-12">
@@ -36,7 +36,7 @@
                                                 <form:errors path="username"></form:errors>
                                                 </div>
                                         </spring:bind>
-                                        
+
                                         <spring:bind path="email">
                                             <div class="form-group p-1 ${status.error ? 'has-error' : ''}">
                                                 <form:input type="text" path="email" class="form-control" placeholder="Email"
