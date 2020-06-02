@@ -24,7 +24,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a class="navbar-brand" href="#">Noob Games</a>
+            <a class="navbar-brand" style="font-family: fantasy; font-size: 25px;" href="#">Noob Games</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Games</a>
