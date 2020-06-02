@@ -50,13 +50,21 @@ public class MainController {
     }
 
     @GetMapping("/home")
-    public String login(Model model, String error, String logout) {
+    public String login(Model model, String error, String logout, String update, String delete) {
         if (error != null) {
             model.addAttribute("error", "Your username and password is invalid.");
         }
 
         if (logout != null) {
             model.addAttribute("message", "You have been logged out successfully.");
+        }
+
+        if (update != null) {
+            model.addAttribute("message", "Your account has been updated.");
+        }
+
+        if (delete != null) {
+            model.addAttribute("message", "Your account has been deleted.");
         }
 
         return "home";
@@ -77,7 +85,7 @@ public class MainController {
     }
 
     @PostMapping("/update")
-    public String update(Model model, @ModelAttribute("user") User userForm, BindingResult bindingResult, HttpServletRequest request) throws ServletException {
+    public String update(@ModelAttribute("user") User userForm, BindingResult bindingResult, HttpServletRequest request) throws ServletException {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
@@ -87,24 +95,21 @@ public class MainController {
         String username = authentication.getName();
         User currentUser = userService.findByUsername(username);
         userService.updateUser(currentUser, userForm);
-        model.addAttribute("message","Your account has been updated.");
         request.logout();
-        return "redirect:/home";
+        return "redirect:/home?update";
     }
-    
+
     @PreAuthorize("#contact.name == authentication.name")
     @GetMapping("/delete/{username}")
-    public String delete(Model model, @PathVariable("username") String username, HttpServletRequest request) throws ServletException {
-        
+    public String delete(@PathVariable("username") String username, HttpServletRequest request) throws ServletException {
+
         User user = userService.findByUsername(username);
-        if(user == null){
-            model.addAttribute("message","Oops, something went wrong.");
+        if (user == null) {
             return "redirect:/home";
         }
         userService.delete(user);
-        model.addAttribute("message","Your account has been deleted.");
         request.logout();
-        return "redirect:/home";
+        return "redirect:/home?delete";
     }
 
 }
