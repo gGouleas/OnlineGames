@@ -7,6 +7,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>nav</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -25,20 +28,28 @@
                     <a class="nav-link" href="#">Merchandise</a>
                 </li>
                 <li>
-                    <div class="container text-white">
-                        <c:if test="${pageContext.request.userPrincipal.name != null}">
-                            <form id="logoutForm" method="POST" action="${contextPath}/logout">
-                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                            </form>
-                            <form id="updateForm" method="GET" action="${contextPath}/update">
-                            </form>
 
-                            <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
-                                | <a onclick="document.forms['updateForm'].submit()">Update</a></h2>
-                            </c:if>
-                    </div>
                 </li>
             </ul>
+            <div class="container text-white">
+                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    <form id="logoutForm" method="POST" action="${contextPath}/logout">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form>
+                    <form id="updateForm" method="GET" action="${contextPath}/update">
+                    </form>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Welcome ${pageContext.request.userPrincipal.name}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" onclick="document.forms['logoutForm'].submit()">Logout</a>
+                            <a class="dropdown-item" onclick="document.forms['updateForm'].submit()">Update</a>
+                        </div>
+                    </div>
+                </c:if>
+            </div>
         </nav>
 
     </body>
