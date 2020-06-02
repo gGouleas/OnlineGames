@@ -50,7 +50,7 @@ public class MainController {
     }
 
     @GetMapping("/home")
-    public String login(Model model, String error, String logout, String update, String delete) {
+    public String login(Model model, String error, String logout, String update, String delete, String unregistered) {
         if (error != null) {
             model.addAttribute("error", "Your username and password is invalid.");
         }
@@ -65,6 +65,10 @@ public class MainController {
 
         if (delete != null) {
             model.addAttribute("message", "Your account has been deleted.");
+        }
+        
+        if (unregistered != null) {
+            model.addAttribute("message", "You must login to play games.");
         }
 
         return "home";
