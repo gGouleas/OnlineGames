@@ -43,3 +43,14 @@ function getCategoryFilter() {
         });
     });
 }
+
+function getUserHighscores(user) {
+    $.getJSON("highscore/user/"+user, function (result) {
+        console.log(result);
+        $.each(result, function (i, field) {
+            $('#highscores').prepend('<tr id="highscore-row"></tr>');
+            $('#highscore-row').html('<td>' + field.game.name + '</td>' + '<td>' + field.highscore + '</td>');
+        });
+        $('#highscores').prepend('<tr><th>Game</th><th>Your Highscore</th></tr>');
+    });
+}
