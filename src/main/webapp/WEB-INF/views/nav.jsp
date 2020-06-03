@@ -12,7 +12,7 @@
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
         <script src="${contextPath}/resources/js/home-main.js"></script>
         <script>          
-            $(document).ready(getCategoryFilter());
+            $(document).load(getCategoryFilter());
         </script>
     </head>
     <body>
@@ -23,7 +23,7 @@
                     <a class="nav-link" href="#">Games</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Highscores</a>
+                    <a class="nav-link" href="highscores">Highscores</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Chat</a>
