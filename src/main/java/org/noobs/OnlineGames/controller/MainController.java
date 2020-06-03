@@ -49,6 +49,11 @@ public class MainController {
         return "redirect:/main";
     }
 
+    @GetMapping("/about-us")
+    public String aboutUs(Model model) {
+        return "about-us";
+    }
+
     @GetMapping("/home")
     public String login(Model model, String error, String logout, String update, String delete, String unregistered) {
         if (error != null) {
@@ -66,7 +71,7 @@ public class MainController {
         if (delete != null) {
             model.addAttribute("message", "Your account has been deleted.");
         }
-        
+
         if (unregistered != null) {
             model.addAttribute("message", "You must login to play games.");
         }
@@ -115,9 +120,9 @@ public class MainController {
         request.logout();
         return "redirect:/home?delete";
     }
-    
+
     @GetMapping("/highscores")
-    public String highscores(Model model){
+    public String highscores(Model model) {
         return "highscores";
     }
 

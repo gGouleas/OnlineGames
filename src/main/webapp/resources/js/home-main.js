@@ -5,7 +5,9 @@ function showGames(field) {
     $('#gameImg').attr('src', field.imgSrc);
     $('#gameImg').attr('title', field.name);
     $('#gameImg').attr('alt', field.name);
-    $('#gameSrc').attr('href', field.mainSrc);
+    console.log(window.location.pathname);
+    window.location.pathname === "/OnlineGames/home" ? 
+    $('#gameSrc').attr('href', 'home?unregistered') : $('#gameSrc').attr('href', field.mainSrc);
     $('#gameImg').tooltip();
     $(".selector").tooltip("classes.tooltip");
 }
