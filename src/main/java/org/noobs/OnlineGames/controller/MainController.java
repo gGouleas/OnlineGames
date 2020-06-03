@@ -125,5 +125,11 @@ public class MainController {
     public String highscores(Model model) {
         return "highscores";
     }
-
+    
+    @GetMapping("/game-page")
+    public String gamePage(Model model, String mainSrc, String title){
+        model.addAttribute("title", title);
+        model.addAttribute("mainSrc", mainSrc);
+        return "game-page";            
+    }
 }

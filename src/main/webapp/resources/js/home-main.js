@@ -6,7 +6,8 @@ function showGames(field) {
     $('#gameImg').attr('title', field.name);
     $('#gameImg').attr('alt', field.name);
     window.location.pathname === "/OnlineGames/home" ?
-            $('#gameSrc').attr('href', 'home?unregistered') : $('#gameSrc').attr('href', field.mainSrc);
+            $('#gameSrc').attr('href', 'home?unregistered') : $('#gameSrc')
+                    .attr('href', 'game-page?mainSrc='+field.mainSrc+"&title="+field.name);
     $('#gameImg').tooltip();
     $(".selector").tooltip("classes.tooltip");
 }

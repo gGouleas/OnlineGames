@@ -14,7 +14,7 @@
             </div>
             <div class="footer">
                 <p>©Noob Games Team</p>
-                <a style="color: #37FDFC;" href="about-us">About us</a>
+                <a style="color: #37FDFC; position: relative; bottom: 10px;" href="about-us">About us</a>
             </div>
         </footer>
     </body>
