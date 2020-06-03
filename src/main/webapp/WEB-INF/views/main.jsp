@@ -19,6 +19,10 @@
     </head>
     <body>   
         <jsp:include page="nav.jsp"/>
+        <div class="container">
+            <hr class="mt-2 mb-5">
+            <div id="games" class="row text-center text-lg-left">
+            </div>
         </div>
         <jsp:include page="footer.jsp"/>
         <script src="//static.miniclipcdn.com/js/game-embed.js"></script>
