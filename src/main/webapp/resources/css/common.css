@@ -5,6 +5,7 @@ body {
     background-color: darkslategray;
     position: relative;
     min-height: 100vh;
+
 }
 
 .form-signin {
@@ -69,8 +70,10 @@ body {
 
 
 .footer {
-    
-    padding: 3px;
+    margin-bottom: -20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: grey;
     color: #37FDFC;
     text-align: center;
