@@ -22,11 +22,18 @@ function getAllGames() {
 
 function getCategoryFilter() {
     $.getJSON("category/", function (result) {
+        $('#categories').prepend('<option id="catOption" class="dropdown-item link"></option>');
+        $('#catOption').html('All');
+        $('#catOption').click(function () {
+            getAllGames();
+            $('#current-category').replaceWith('<span id="current-category">All</span>');
+        });
         $.each(result, function (i, field) {
             $('#categories').prepend('<option id="catOption" class="dropdown-item link"></option>');
             $('#catOption').html(field.name);
             $('#catOption').click(function () {
                 $('#games').empty();
+                $('#current-category').replaceWith('<span id="current-category">'+field.name+'</span>');
                 $.getJSON("game/category/id/" + field.id, function (result) {
                     $.each(result, function (i, field) {
                         showGames(field);

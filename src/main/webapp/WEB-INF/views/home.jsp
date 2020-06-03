@@ -43,11 +43,12 @@
                 </div>
             </form>
         </div>
-        <div class="container">
-            <hr class="mt-2 mb-5">
-            <div id="games" class="row text-center text-lg-left">
-            </div>
+        <p ><h2 style="color: white; padding-left: 20%;">Showing <span id="current-category">All</span> games</h2></p>
+    <div class="container">
+        <hr class="mt-2 mb-5">
+        <div id="games" class="row text-center text-lg-left">
         </div>
-        <jsp:include page="footer.jsp"/>
-    </body>
+    </div>
+    <jsp:include page="footer.jsp"/>
+</body>
 </html>
