@@ -19,14 +19,19 @@
             $.getJSON("highscore/user/${pageContext.request.userPrincipal.name}", function (result) {
                 console.log(result);
                 $.each(result, function (i, field) {
-                    showGames(field.game);
+                    $('#highscores').prepend('<tr id="highscore-row"></tr>');
+                    $('#highscore-row').html('<td>'+field.game.name+'</td>'+'<td>'+field.highscore+'</td>');
                 });
+                $('#highscores').prepend('<tr><th>Game</th><th>Your Highscore</th></tr>');
             });
         </script>
     </head>
     <body>
+        <jsp:include page="nav2.jsp"/>
         <div class='container text-white'><h1>Your highscores ${pageContext.request.userPrincipal.name}</h1></div>
-        <div id="games" class="mt-5"></div>
+        <div class="container">
+        <table id="highscores" class="mt-5 table-dark"></table>
+        </div>
         <jsp:include page="footer.jsp"/>
     </body>
 </html>

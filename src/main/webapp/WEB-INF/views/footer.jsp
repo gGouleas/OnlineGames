@@ -6,14 +6,16 @@
         <title>footer</title>
     </head>
     <body>
-        <div class="container">
-            <hr class="mt-2 mb-5">
-            <div id="games" class="row text-center text-lg-left">
+        <footer class="page-footer">
+            <div class="container">
+                <hr class="mt-2 mb-5">
+                <div id="games" class="row text-center text-lg-left">
+                </div>
             </div>
-        </div>
-        <div class="footer">
-            <p>Noob Games Team</p>
-            <a href="about-us">About us</a>
-        </div>
+            <div class="footer">
+                <p>©Noob Games Team</p>
+                <a style="color: #37FDFC;" href="about-us">About us</a>
+            </div>
+        </footer>
     </body>
 </html>

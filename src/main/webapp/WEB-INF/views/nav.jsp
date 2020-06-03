@@ -11,7 +11,7 @@
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
         <script src="${contextPath}/resources/js/home-main.js"></script>
-        <script>          
+        <script>
             $(document).load(getCategoryFilter());
         </script>
     </head>
@@ -32,7 +32,7 @@
                     <a class="nav-link" href="#">Merchandise</a>
                 </li>
                 <li>
-                    <div class="dropdown ml-4">
+                    <div id="categoryDiv" class="dropdown ml-4">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Categories
                         </button>
