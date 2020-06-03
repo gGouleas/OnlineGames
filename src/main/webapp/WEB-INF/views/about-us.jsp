@@ -1,68 +1,80 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.container {
-  border: 2px solid #ccc;
-  background-color: #eee;
-  border-radius: 5px;
-  padding: 16px;
-  margin: 16px 0
-}
-
-.container::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.container img {
-  float: left;
-  margin-right: 20px;
-  border-radius: 50%;
-}
-
-.container span {
-  font-size: 20px;
-  margin-right: 15px;
-}
-
-@media (max-width: 500px) {
-  .container {
-      text-align: center;
-  }
-  .container img {
-      margin: auto;
-      float: none;
-      display: block;
-  }
-}
-
-body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-image: url("../img/photo2.jpg");
-    background-color: darkslategray;
-}
-</style>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/about-us.css">
 </head>
+
 <body>
 
-<h2>Responsive Testimonials</h2>
-<p>Resize the browser window to see the effect.</p>
 
-<div class="container">
-  <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:90px">
-  <p><span>Chris Fox.</span> CEO at Mighty Schools.</p>
-  <p>John Doe saved us from a web disaster.</p>
-</div>
+  <div class="row">
 
-<div class="container">
-  <img src="/w3images/avatar_g2.jpg" alt="Avatar" style="width:90px">
-  <p><span>Rebecca Flex.</span> CEO at Company.</p>
-  <p>No one is better than John Doe.</p>
-</div>
+    <div class="column">
+      <div class="card">
+        <img src="https://giantbomb1.cbsistatic.com/uploads/scale_small/0/7820/880137-090203vega.jpg"  style="width:100%">
+        
+        <h1> &nbsp;&nbsp; &nbsp;Ασημάκης&nbsp; &nbsp; Ζαΐμης</h1>
+        <p class="title">CB10 JAVA FULL TIME</p>
+        
+        <div style="margin: 24px 0;">
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-phone"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="https://giantbomb1.cbsistatic.com/uploads/scale_small/0/7820/880139-090203bison.jpg"  style="width:100%">
+        
+        <h1>&nbsp; &nbsp;Ιωάννης &nbsp;&nbsp;&nbsp;Γουλέας</h1>
+        <p class="title">CB10 JAVA FULL TIME</p>
+        
+        <div style="margin: 24px 0;">
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-phone"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="https://giantbomb1.cbsistatic.com/uploads/scale_small/7/70497/2993940-remyportraitsfiii3rd.jpg"  style="width:100%">
+        
+        <h1>Δημήτρης Αγγελόπουλος</h1>
+        <p class="title">CB10 JAVA FULL TIME</p>
+        
+        <div style="margin: 24px 0;">
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-phone"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="https://giantbomb1.cbsistatic.com/uploads/scale_small/11/115901/2079161-guile2.jpg"  style="width:100%">
+        
+        <h1>&nbsp;Θεοφάνης &nbsp;&nbsp;Κόλλιας</h1>
+        <p class="title">CB10 JAVA FULL TIME</p>
+        
+        <div style="margin: 24px 0;">
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-phone"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
