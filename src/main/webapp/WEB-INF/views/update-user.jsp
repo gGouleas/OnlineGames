@@ -16,7 +16,6 @@
     </head>
 
     <body>
-        <jsp:include page="nav.jsp"/>
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-12">

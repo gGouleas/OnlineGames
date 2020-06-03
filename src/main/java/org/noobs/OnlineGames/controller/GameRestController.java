@@ -34,16 +34,6 @@ public class GameRestController {
         return new ResponseEntity<List<Game>>(games, HttpStatus.OK);
     }
     
-    //---------------Retrieve games by category--------------------------
-    @RequestMapping(value = "/category/{category}", method = RequestMethod.GET)
-    public ResponseEntity<List<Game>> GamesByCategory(@PathVariable("category") Category category) {
-        List<Game> games = gameService.findByCategory(category);
-        if (games.isEmpty()) {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<List<Game>>(games, HttpStatus.OK);
-    }
-    
     //---------------Retrieve games by category ID--------------------------
     @RequestMapping(value = "category/id/{categoryId}", method = RequestMethod.GET)
     public ResponseEntity<List<Game>> GamesByCategory(@PathVariable("categoryId") long id) {

@@ -21,7 +21,6 @@
         </script>
     </head>
     <body>
-        <jsp:include page="nav.jsp"/>
         
         
     </body>

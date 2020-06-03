@@ -10,8 +10,6 @@ public interface IGameService  {
     
     Game findByName(String name);
     
-    List<Game> findByCategory(Category category);
-    
     List<Game> findByCategory(long id);
     
 }

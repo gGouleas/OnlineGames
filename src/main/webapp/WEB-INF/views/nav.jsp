@@ -10,21 +10,14 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+        <script src="${contextPath}/resources/js/home-main.js"></script>
         <script>          
-            $.getJSON("category/", function (result) {
-                $.each(result, function (i, field) {
-                    $('#categories').prepend('<option id="catOption" class="dropdown-item link"></option>');
-                    $('#catOption').html(field.name);
-                    $('#catOption').click(function() {
-                        console.log("triggered");
-                    });
-                });
-            });
+            $(document).ready(getCategoryFilter());
         </script>
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a class="navbar-brand" style="font-family: fantasy; font-size: 25px;" href="#">Noob Games</a>
+            <a class="navbar-brand" style="font-family: fantasy; font-size: 25px;" href="main/">Noob Games</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Games</a>

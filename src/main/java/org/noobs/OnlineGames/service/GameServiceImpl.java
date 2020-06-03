@@ -21,11 +21,6 @@ public class GameServiceImpl implements IGameService {
     public Game findByName(String name) {
         return gameRepository.findByName(name);
     }
-
-    @Override
-    public List<Game> findByCategory(Category category) {
-        return gameRepository.findByCategory(category.getId());
-    }
     
     @Override
     public List<Game> findByCategory(long id){
