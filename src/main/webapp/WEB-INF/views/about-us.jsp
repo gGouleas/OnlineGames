@@ -12,10 +12,7 @@
 </head>
 
 <body>
-
-
   <div class="row">
-
     <div class="column">
       <div class="card">
         <img src="https://giantbomb1.cbsistatic.com/uploads/scale_small/0/7820/880137-090203vega.jpg"  style="width:100%">
@@ -76,5 +73,5 @@
       </div>
     </div>
   </div>
-
+    <h3><a class="back" href="main">Return to main page</a></h3>
 </body>
