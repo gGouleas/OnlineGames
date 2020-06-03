@@ -21,7 +21,7 @@
         <script>
             $(document).ready(getAllGames());
         </script>
-    
+
     </head>
 
     <body>
@@ -43,15 +43,6 @@
                 </div>
             </form>
         </div>
-
-        <div class="container">
-            <hr class="mt-2 mb-5">
-            <div id="games" class="row text-center text-lg-left">
-            </div>
-        </div>
-        <div class="footer">
-            <p>Noob Games Team</p>
-            <a href="#">About us</a>
-        </div>
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>
