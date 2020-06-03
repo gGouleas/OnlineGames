@@ -43,11 +43,11 @@
                 </div>
             </form>
         </div>
-        <div class="container">
-            <hr class="mt-2 mb-5">
-            <div id="games" class="row text-center text-lg-left">
-            </div>
+    <div class="container">
+        <hr class="mt-2 mb-5">
+        <div id="games" class="row text-center text-lg-left">
         </div>
-        <jsp:include page="footer.jsp"/>
-    </body>
+    </div>
+    <jsp:include page="footer.jsp"/>
+</body>
 </html>

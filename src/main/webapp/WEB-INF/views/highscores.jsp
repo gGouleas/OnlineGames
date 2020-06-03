@@ -16,14 +16,7 @@
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
         <script>
-            $.getJSON("highscore/user/${pageContext.request.userPrincipal.name}", function (result) {
-                console.log(result);
-                $.each(result, function (i, field) {
-                    $('#highscores').prepend('<tr id="highscore-row"></tr>');
-                    $('#highscore-row').html('<td>'+field.game.name+'</td>'+'<td>'+field.highscore+'</td>');
-                });
-                $('#highscores').prepend('<tr><th>Game</th><th>Your Highscore</th></tr>');
-            });
+            $(document).load(getUserHighscores('${pageContext.request.userPrincipal.name}'));
         </script>
     </head>
     <body>
