@@ -4,6 +4,7 @@ function showGames(field) {
                     <img id="gameImg" class="img-fluid img-thumbnail"></a></div>');
     $('#gameImg').attr('src', field.imgSrc);
     $('#gameImg').attr('title', field.name);
+    $('#gameImg').attr('alt', field.name);
     $('#gameSrc').attr('href', field.mainSrc);
     $('#gameImg').tooltip();
     $(".selector").tooltip("classes.tooltip");
