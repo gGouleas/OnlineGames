@@ -69,10 +69,8 @@ body {
 
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    margin-top: 100px;
-    width: 100%;
+    
+    padding: 3px;
     background-color: grey;
     color: #37FDFC;
     text-align: center;
