@@ -38,6 +38,7 @@ function getCategoryFilter() {
         $('#categories').prepend('<option id="catOption" class="dropdown-item link"></option>');
         $('#catOption').html('All');
         $('#catOption').click(function () {
+            $('#games').empty();
             getAllGames();
             $('#current-category').replaceWith('<span id="current-category">All</span>');
         });

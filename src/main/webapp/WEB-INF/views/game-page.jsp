@@ -11,7 +11,7 @@
     </head>
     <body>
         <jsp:include page="nav2.jsp"/>
-        <div class="miniclip-game-embed" data-game-name="${mainSrc}" data-theme="5" data-width="1500"
+        <div class="miniclip-game-embed mb-5" data-game-name="${mainSrc}" data-theme="5" data-width="1500"
         data-height="700" data-language="en"></div>
         <jsp:include page="footer.jsp"/>
         <script src="//static.miniclipcdn.com/js/game-embed.js"></script>

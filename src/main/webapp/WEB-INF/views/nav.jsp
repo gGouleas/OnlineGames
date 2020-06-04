@@ -40,8 +40,8 @@
                         </div>
                     </div>
                 </li>
-                <li style="width: max-content; padding-left: 15px;">
-                    <h4><span style="color: white;">Showing <span id="current-category">All</span> games</span></h4>
+                <li style="width: max-content; padding-left: 10px;">
+                    <h4><span style="color: white;">: <span id="current-category">All</span></span></h4>
                 </li>
             </ul>
             <div class="container text-white">
