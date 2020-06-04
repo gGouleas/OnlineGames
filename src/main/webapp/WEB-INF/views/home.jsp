@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <title>Home Page</title>
-
+        <link rel="icon" href="${contextPath}/resources/favicon.png" sizes="16x16 32x32" type="image/png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
@@ -43,11 +43,11 @@
                 </div>
             </form>
         </div>
-    <div class="container">
-        <hr class="mt-2 mb-5">
-        <div id="games" class="row text-center text-lg-left">
+        <div class="container">
+            <hr class="mt-2 mb-5">
+            <div id="games" class="row text-center text-lg-left">
+            </div>
         </div>
-    </div>
-    <jsp:include page="footer.jsp"/>
-</body>
+        <jsp:include page="footer.jsp"/>
+    </body>
 </html>
