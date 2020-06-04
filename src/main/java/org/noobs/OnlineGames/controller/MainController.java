@@ -132,4 +132,5 @@ public class MainController {
         model.addAttribute("mainSrc", mainSrc);
         return "game-page";            
     }
+    
 }
