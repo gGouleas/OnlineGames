@@ -77,6 +77,10 @@ body {
     background-color: grey;
     color: #37FDFC;
     text-align: center;
+    
+    #money {
+        background-color: white;
+    }
 }
 
 .link {
