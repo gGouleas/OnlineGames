@@ -12,13 +12,9 @@ package org.noobs.OnlineGames.entity;
 public enum CategoryEnum {
     
     Action,
-    Adventure,
+    Arcade,
     Puzzle,
     Racing,
-    FPS,
-    Sandbox,
-    Rpg,
-    Moba,
     Sports
     
 }
