@@ -32,9 +32,6 @@ public class UserValidator implements Validator {
         }
         
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
-//        if (user.getEmail().length() < 6 || user.getEmail().length() > 32) {
-//            errors.rejectValue("email", "Size.userForm.email");
-//        }
         if(!user.getEmail().matches("^(.+)@(.+)$")){
             errors.rejectValue("email", "Valid.userForm.email");
         }
