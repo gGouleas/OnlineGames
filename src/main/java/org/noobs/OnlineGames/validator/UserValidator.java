@@ -38,10 +38,7 @@ public class UserValidator implements Validator {
         if(!user.getEmail().matches("^(.+)@(.+)$")){
             errors.rejectValue("email", "Valid.userForm.email");
         }
-//        if (userService.findByUsername(user.getUsername()) != null) {
-//            errors.rejectValue("username", "Duplicate.userForm.username");
-//        }
-
+        
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
         if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
             errors.rejectValue("password", "Size.userForm.password");
